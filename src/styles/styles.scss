@@ -1,0 +1,39 @@
+/* ----------------------------------------------------------------------------------------------------- */
+/*  @ Import/write your custom styles here.
+/*  @ Styles from this file will override 'vendors.scss' and Fuse's base styles.
+/* ----------------------------------------------------------------------------------------------------- */
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    padding: 0px !important;
+}
+
+.mat-horizontal-content-container {
+    padding: 0 !important;
+}
+.mat-horizontal-stepper-header {
+    height: 40px !important;
+}
+
+.fc .fc-view-harness {
+    height: 100% !important;
+}
+
+.mat-accordion .mat-expansion-panel.mat-expanded,
+.mat-accordion .mat-expansion-panel:hover {
+    box-shadow: none !important;
+}
+
+.mat-mdc-tab-group .mat-mdc-tab-body-content {
+    padding: 0px !important;
+}
+
+.mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container {
+    margin: 0 !important;
+}
+.mat-mdc-tab-header {
+    background-color: rgb(255 251 235) !important;
+}
+
+.mat-mdc-table .mdc-data-table__header-row {
+    height: 45px !important;
+}

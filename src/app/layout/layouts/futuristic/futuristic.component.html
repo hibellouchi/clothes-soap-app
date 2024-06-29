@@ -1,0 +1,66 @@
+<!-- Loading bar -->
+<fuse-loading-bar></fuse-loading-bar>
+
+<!-- Navigation -->
+<fuse-vertical-navigation
+    class="dark bg-green-700 text-white print:hidden"
+    [mode]="isScreenSmall ? 'over' : 'side'"
+    [name]="'mainNavigation'"
+    [navigation]="navigation.admin"
+    [opened]="!isScreenSmall"
+>
+    <!-- Navigation header hook -->
+    <ng-container fuseVerticalNavigationHeader>
+        <!-- Logo -->
+        <div class="p-12">
+            <img src="../../../../assets/images/logo/logo-text.svg" />
+        </div>
+    </ng-container>
+    <!-- Navigation footer hook -->
+    <ng-container fuseVerticalNavigationFooter>
+        <!-- User -->
+        <div class="flex items-center w-full px-6 py-8 border-t">
+            <user></user>
+            <div class="flex flex-col w-full ml-4 overflow-hidden">
+                <div
+                    class="w-full whitespace-nowrap text-ellipsis overflow-hidden leading-normal text-current opacity-80"
+                >
+                    admin
+                </div>
+                <div
+                    class="w-full mt-0.5 whitespace-nowrap text-sm text-ellipsis overflow-hidden leading-normal text-current opacity-50"
+                >
+                    admin@admin.com
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</fuse-vertical-navigation>
+
+<!-- Wrapper -->
+<div class="flex flex-col flex-auto w-full min-w-0">
+    <!-- Header -->
+    <div
+        class="relative flex flex-0 items-center w-full h-16 px-4 md:px-6 z-49 shadow dark:shadow-none dark:border-b bg-card dark:bg-transparent print:hidden"
+    >
+        <!-- Navigation toggle button -->
+        <button
+            class="mr-2"
+            mat-icon-button
+            (click)="toggleNavigation('mainNavigation')"
+        >
+            <mat-icon [svgIcon]="'mat_solid:menu'"></mat-icon>
+        </button>
+        <!-- Components -->
+        <div class="flex items-center pl-2 ml-auto space-x-0.5 sm:space-x-2">
+            <fuse-fullscreen class="hidden md:block"></fuse-fullscreen>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex flex-col flex-auto">
+        <!-- *ngIf="true" hack is required here for router-outlet to work correctly.
+             Otherwise, layout changes won't be registered and the view won't be updated! -->
+        <router-outlet *ngIf="true"></router-outlet>
+    </div>
+</div>

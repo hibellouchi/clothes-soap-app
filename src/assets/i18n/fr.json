@@ -1,0 +1,31 @@
+{
+    "settings": {
+        "settings-tab": "Paramètres",
+        "account": "Compte",
+        "accountDetail": "Gérez votre profil public et vos informations privées",
+        "profile": "Profil",
+        "profileDetail": "Gérez votre mot de passe et vos préférences de vérification en 2 étapes",
+        "profileAlert": "Les informations suivantes sont affichées publiquement, soyez prudent !",
+        "accountEmail": "E-mail",
+        "accountFirstName": "Prénom",
+        "accountLastName": "Nom de famille",
+        "accountAbout": "À propos",
+        "accountAboutHint": "Brève description de votre profil. Le HTML de base et les Emoji sont autorisés.",
+        "cancel": "Annuler",
+        "save": "Enregistrer",
+        "changePassword": "Changez votre mot de passe",
+        "changePasswordDetails": "Vous ne pouvez modifier votre mot de passe qu'une seule fois dans les 24 heures !",
+        "alertSuccessUpdate": "Votre mot de passe a été mis à jour avec succès .",
+        "alertFailUpdate": "Une erreur s'est produite et votre mot de passe sera mis à jour.",
+        "currentPassword": "Mot de passe actuel",
+        "newPassword": "Nouveau mot de passe",
+        "confirmNewPassword": "Confirmer le nouveau mot de passe",
+        "passwordNotmatch": "Les mots de passe doivent correspondre",
+        "passwordMinChar": "Le mot de passe doit contenir au moins un chiffre, une majuscule et une lettre minuscule et au moins 8 caractères. Le mot de passe ne peut pas contenir d'espaces"
+    },
+    "errorPage": {
+        "title": "Quelque chose s'est mal passé!",
+        "subTitle": "Notre équipe a été prévenue, merci de votre compréhension.",
+        "backHome": "Retour à la page d'accueil"
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "settings": {
+        "settings-tab": "Settings",
+        "account": "Account",
+        "accountDetail": "Manage your public profile and private information",
+        "profile": "Profile",
+        "profileDetail": "Manage your password and 2-step verification preferences",
+        "profileAlert": "Following information is publicly displayed, be careful!",
+        "accountEmail": "Email",
+        "accountFirstName": "First Name",
+        "accountLastName": "Last Name",
+        "accountAbout": "About",
+        "accountAboutHint": "Brief description for your profile. Basic HTML and Emoji are allowed.",
+        "cancel": "Cancel",
+        "save": "Save",
+        "changePassword": "Change your password",
+        "changePasswordDetails": "You can only change your password once within 24 hours!",
+        "alertSuccessUpdate": "Your password is successfully updated .",
+        "alertFailUpdate": "Somthing went wrong will updating your password .",
+        "currentPassword": "Current password",
+        "newPassword": "New password",
+        "confirmNewPassword": "Confirm new password",
+        "passwordNotmatch": "Passwords must match",
+        "passwordMinChar": "Password must contain at least one number, one uppercase and a lowercase letter and at least 8 characters Password cannot contain whitespace."
+    },
+    "errorPage": {
+        "title": "Something went wrong!",
+        "subTitle": "Our staff has been notified, thank you for your understanding.",
+        "backHome": "Back to Homepage"
+    }
+}
