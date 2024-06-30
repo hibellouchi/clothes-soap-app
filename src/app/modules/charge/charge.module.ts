@@ -30,6 +30,7 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { NewChargeItemDialogComponent } from './dialog/new-charge-item.component';
 
 const dashboardRoutes: Route[] = [
     {
@@ -39,7 +40,7 @@ const dashboardRoutes: Route[] = [
 ];
 
 @NgModule({
-    declarations: [ChargeComponent],
+    declarations: [ChargeComponent, NewChargeItemDialogComponent],
     imports: [
         CommonModule,
         RouterModule.forChild(dashboardRoutes),

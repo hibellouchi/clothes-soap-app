@@ -33,6 +33,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { EmlpoyeeSalarieComponent } from './employee-salaried/emlpoyee-salarie.component';
 import { EmlpoyeeListComponent } from './employee-list/emlpoyee-list.component';
 import { EmployeeComponent } from './employee.component';
+import { NewEmlpoyeeItemDialogComponent } from './employee-list/dialog/new-employee-item.component';
 
 const employeeRoutes: Route[] = [
     {
@@ -61,6 +62,7 @@ const employeeRoutes: Route[] = [
         EmlpoyeeSalarieComponent,
         EmlpoyeeListComponent,
         EmployeeComponent,
+        NewEmlpoyeeItemDialogComponent,
     ],
     imports: [
         CommonModule,

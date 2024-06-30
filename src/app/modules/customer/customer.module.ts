@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { CustomerComponent } from './customer.component';
+
 import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from 'app/shared/shared.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -30,8 +30,10 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { CustomerComponent } from './customer.component';
+import { NewCustomerItemDialogComponent } from './dialog/new-customer-item.component';
 
-const dashboardRoutes: Route[] = [
+const customerRoutes: Route[] = [
     {
         path: '',
         component: CustomerComponent,
@@ -39,10 +41,10 @@ const dashboardRoutes: Route[] = [
 ];
 
 @NgModule({
-    declarations: [CustomerComponent],
+    declarations: [CustomerComponent, NewCustomerItemDialogComponent],
     imports: [
         CommonModule,
-        RouterModule.forChild(dashboardRoutes),
+        RouterModule.forChild(customerRoutes),
 
         MatSortModule,
         MatPaginatorModule,

@@ -1,0 +1,82 @@
+<div mat-dialog-content>
+    <div>
+        <form [formGroup]="employeeForm">
+            <div class="flex flex-row gap-2">
+                <mat-form-field class="w-full">
+                    <mat-label>Name</mat-label>
+                    <input
+                        matInput
+                        required
+                        type="text"
+                        formControlName="name"
+                    />
+
+                    <mat-error
+                        *ngIf="employeeForm.get('name').hasError('required')"
+                    >
+                        name is required.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label>Phone</mat-label>
+                    <input
+                        matInput
+                        required
+                        type="text"
+                        formControlName="phone"
+                    />
+
+                    <mat-error
+                        *ngIf="employeeForm.get('phone').hasError('required')"
+                    >
+                        phone is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex flex-row gap-2">
+                <mat-form-field class="w-full">
+                    <mat-label>Cin</mat-label>
+                    <input
+                        matInput
+                        required
+                        type="text"
+                        formControlName="cin"
+                    />
+
+                    <mat-error
+                        *ngIf="employeeForm.get('cin').hasError('required')"
+                    >
+                        cin is required.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label>Adress</mat-label>
+                    <input
+                        matInput
+                        required
+                        type="text"
+                        formControlName="adress"
+                    />
+
+                    <mat-error
+                        *ngIf="employeeForm.get('adress').hasError('required')"
+                    >
+                        adress is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+</div>
+
+<mat-dialog-actions class="flex justify-end">
+    <button mat-button mat-dialog-close>cancel</button>
+    <button
+        mat-button
+        (click)="saveEmployee()"
+        [color]="'primary'"
+        [disabled]="employeeForm.invalid"
+    >
+        Create
+    </button>
+</mat-dialog-actions>
