@@ -31,10 +31,7 @@ export class ChargeApiService {
         );
     }
     addCharge(body: NewCharge) {
-        return this._httpClient.post<GlobalDataById<Charge>>(
-            this.url + 'charge/add',
-            body
-        );
+        return this._httpClient.post<Charge>(this.url + 'charge/add', body);
     }
     deleteCharge(params: any, body: any): Observable<any> {
         return this._httpClient.put(this.url + `charge/delete/${params}`, body);

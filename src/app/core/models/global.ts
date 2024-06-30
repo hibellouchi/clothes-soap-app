@@ -10,8 +10,6 @@ export interface GlobalBody {
     limit?: number;
     sort?: string;
     keyword?: string;
-    range?: { start: Date; end: Date };
-    patient?: string;
 }
 export interface languageModel {
     label: string;
