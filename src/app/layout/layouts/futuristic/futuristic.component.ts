@@ -10,6 +10,7 @@ import { Navigation } from 'app/core/navigation/navigation.types';
 import { NavigationService } from 'app/core/navigation/navigation.service';
 import { User } from 'app/core/user/user.types';
 import { UserService } from 'app/core/user/user.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
     selector: 'futuristic-layout',
@@ -21,6 +22,10 @@ export class FuturisticLayoutComponent implements OnInit, OnDestroy {
     navigation: Navigation;
     user: User;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
+    public decodeToken = {
+        email: '',
+        firstName: '',
+    };
 
     get accessToken(): string {
         return localStorage.getItem('accessToken') ?? '';
@@ -34,7 +39,9 @@ export class FuturisticLayoutComponent implements OnInit, OnDestroy {
         private _fuseMediaWatcherService: FuseMediaWatcherService,
 
         private _fuseNavigationService: FuseNavigationService
-    ) {}
+    ) {
+        this.decodeToken = jwtDecode(this.accessToken);
+    }
 
     ngOnInit(): void {
         // Subscribe to navigation data

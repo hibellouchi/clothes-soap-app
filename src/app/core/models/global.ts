@@ -2,6 +2,9 @@ export interface GlobalData<T> {
     data: T[];
     count: number;
 }
+export interface GlobalCount {
+    count: number;
+}
 export interface GlobalDataById<T> {
     data: T[];
 }

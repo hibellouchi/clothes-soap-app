@@ -1,0 +1,62 @@
+<div mat-dialog-content>
+    <div>
+        <form [formGroup]="employeeSalaireForm">
+            <div class="flex flex-row gap-2">
+                <mat-form-field class="w-full">
+                    <mat-label>Employee</mat-label>
+                    <mat-select required formControlName="employee">
+                        <ng-container *ngFor="let type of employee$ | async">
+                            <mat-option
+                                class="h-auto py-4 leading-none"
+                                [value]="type.name"
+                            >
+                                {{ type?.name }}
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>
+                    <mat-error
+                        *ngIf="
+                            employeeSalaireForm
+                                .get('employee')
+                                .hasError('required')
+                        "
+                    >
+                        Employee is required.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label>Salaire</mat-label>
+                    <input
+                        matInput
+                        required
+                        type="number"
+                        minlengt="0"
+                        formControlName="salaire"
+                    />
+
+                    <mat-error
+                        *ngIf="
+                            employeeSalaireForm
+                                .get('salaire')
+                                .hasError('required')
+                        "
+                    >
+                        Salaire is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+</div>
+
+<mat-dialog-actions class="flex justify-end">
+    <button mat-button mat-dialog-close>cancel</button>
+    <button
+        mat-button
+        (click)="saveEmployeeSalaire()"
+        [color]="'accent'"
+        [disabled]="employeeSalaireForm.invalid"
+    >
+        Create
+    </button>
+</mat-dialog-actions>

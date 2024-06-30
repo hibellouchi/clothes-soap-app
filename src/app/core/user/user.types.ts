@@ -6,9 +6,8 @@ export interface User {
     status?: string;
 }
 export interface UserRegister {
-    id?: string;
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-    password?: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
 }

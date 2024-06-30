@@ -9,6 +9,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomerApiService } from 'app/core/api/customer.service';
 import { EmployeeApiService } from 'app/core/api/employee.service';
+import { EmployeeSalaireApiService } from 'app/core/api/employeeSalaire.service';
+import { Employee } from 'app/core/models/employee';
+import { GlobalData } from 'app/core/models/global';
 
 import { EMPTY, Observable, catchError, map, startWith, tap } from 'rxjs';
 
@@ -17,48 +20,53 @@ export interface User {
 }
 
 @Component({
-    selector: 'app-new-employee-item-dialog',
-    templateUrl: './new-employee-item.component.html',
+    selector: 'app-new-employee-salaire-item-dialog',
+    templateUrl: './new-employee-salaire-item.component.html',
 })
-export class NewEmlpoyeeItemDialogComponent implements OnInit {
+export class NewEmployeeSalaireItemDialogComponent implements OnInit {
     public errorMessage: string | null;
     public isLoading = false;
-    public employeeForm: FormGroup;
+    public employeeSalaireForm: FormGroup;
+    public employee$: Observable<Employee[]>;
 
     constructor(
-        public dialogRef: MatDialogRef<NewEmlpoyeeItemDialogComponent>,
+        public dialogRef: MatDialogRef<NewEmployeeSalaireItemDialogComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
 
         private _fb: FormBuilder,
         private _snackBar: MatSnackBar,
-        private _employeeApiService: EmployeeApiService
+        private _employeeApiService: EmployeeApiService,
+        private _employeeSalaireApiService: EmployeeSalaireApiService
     ) {
-        this.employeeForm = this._fb.group({
-            name: [data.name, [Validators.required]],
-            phone: [
-                data.phone,
-                [
-                    Validators.required,
-                    Validators.pattern('^((\\+212-?)|0)?[675][0-9]{8}$'),
-                ],
-            ],
-            cin: [data.cin, [Validators.required]],
-            adress: [data.adress, [Validators.required]],
+        this.employeeSalaireForm = this._fb.group({
+            employee: [data.employee, [Validators.required]],
+            salaire: [data.salaire, [Validators.required]],
         });
+        this.employee$ = this._employeeApiService
+            .getEmployee({ keyword: '' })
+            .pipe(
+                map((res: GlobalData<Employee>) => res?.data),
+                catchError((err) => {
+                    return EMPTY;
+                })
+            );
     }
 
     ngOnInit() {}
 
-    saveEmployee() {
-        if (this.employeeForm.invalid) {
+    saveEmployeeSalaire() {
+        if (this.employeeSalaireForm.invalid) {
             this._snackBar.open('Please fill all required data.', 'cancel', {
                 duration: 3500,
             });
             return;
         }
         if (this.data._id) {
-            this._employeeApiService
-                .editEmployee(this.data._id, this.employeeForm.value)
+            this._employeeSalaireApiService
+                .editEmployeeSalaire(
+                    this.data._id,
+                    this.employeeSalaireForm.value
+                )
                 .pipe(
                     catchError((err) => {
                         this.errorMessage = err?.error?.message;
@@ -73,8 +81,8 @@ export class NewEmlpoyeeItemDialogComponent implements OnInit {
         }
 
         this.errorMessage = null;
-        this._employeeApiService
-            .addEmployee(this.employeeForm.value)
+        this._employeeSalaireApiService
+            .addEmployeeSalaire(this.employeeSalaireForm.value)
             .pipe(
                 catchError((err) => {
                     this.errorMessage = err?.error?.message;

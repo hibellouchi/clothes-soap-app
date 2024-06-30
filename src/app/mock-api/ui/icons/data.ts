@@ -1101,7 +1101,7 @@ export const material = [
     'not_listed_location',
     'not_started',
     'note',
-    'note_add',
+    'edit',
     'note_alt',
     'notes',
     'notification_add',
@@ -1793,7 +1793,7 @@ export const material = [
     'youtube_searched_for',
     'zoom_in',
     'zoom_out',
-    'zoom_out_map'
+    'zoom_out_map',
 ];
 export const feather = [
     'activity',
@@ -2077,7 +2077,7 @@ export const feather = [
     'zap-off',
     'zap',
     'zoom-in',
-    'zoom-out'
+    'zoom-out',
 ];
 // heroicons v1.0.1 - 230 icons
 export const heroicons = [
@@ -2310,5 +2310,5 @@ export const heroicons = [
     'zoom-in',
     'wifi',
     'zoom-out',
-    'x'
+    'x',
 ];

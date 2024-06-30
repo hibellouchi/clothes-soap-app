@@ -1,0 +1,113 @@
+<div mat-dialog-content>
+    <div>
+        <form [formGroup]="orderForm">
+            <div class="flex flex-row gap-2">
+                <mat-form-field class="w-full">
+                    <mat-label>Custumer</mat-label>
+                    <mat-select required formControlName="customer">
+                        <ng-container *ngFor="let type of customer$ | async">
+                            <mat-option
+                                class="h-auto py-4 leading-none"
+                                [value]="type.name"
+                            >
+                                {{ type?.name }}
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>
+                    <mat-error
+                        *ngIf="orderForm.get('customer').hasError('required')"
+                    >
+                        Customer is required.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label>Category Clothe</mat-label>
+                    <mat-select required formControlName="categoryClothe">
+                        <ng-container
+                            *ngFor="let type of categoryClothe$ | async"
+                        >
+                            <mat-option
+                                class="h-auto py-4 leading-none"
+                                [value]="type.name"
+                            >
+                                {{ type?.name }}
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>
+                    <mat-error
+                        *ngIf="
+                            orderForm.get('categoryClothe').hasError('required')
+                        "
+                    >
+                        Category Clothe is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="flex flex-row gap-2">
+                <mat-form-field class="w-full">
+                    <mat-label>Quantity</mat-label>
+                    <input
+                        matInput
+                        required
+                        type="number"
+                        minlengt="0"
+                        formControlName="quantity"
+                    />
+
+                    <mat-error
+                        *ngIf="orderForm.get('quantity').hasError('required')"
+                    >
+                        Quantity is required.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label>Price</mat-label>
+                    <input
+                        matInput
+                        required
+                        type="number"
+                        minlengt="0"
+                        formControlName="price"
+                    />
+
+                    <mat-error
+                        *ngIf="orderForm.get('price').hasError('required')"
+                    >
+                        Price is required.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label>Status</mat-label>
+
+                    <mat-select required formControlName="status">
+                        <ng-container *ngFor="let type of status">
+                            <mat-option
+                                class="h-auto py-4 leading-none"
+                                [value]="type"
+                            >
+                                {{ type }}
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>
+                    <mat-error
+                        *ngIf="orderForm.get('status').hasError('required')"
+                    >
+                        Status is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+</div>
+
+<mat-dialog-actions class="flex justify-end">
+    <button mat-button mat-dialog-close>cancel</button>
+    <button
+        mat-button
+        (click)="saveEmployeeSalaire()"
+        [color]="'accent'"
+        [disabled]="orderForm.invalid"
+    >
+        Create
+    </button>
+</mat-dialog-actions>

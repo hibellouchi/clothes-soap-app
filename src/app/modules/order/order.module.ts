@@ -30,8 +30,9 @@ import { TranslocoModule } from '@ngneat/transloco';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { NewOrderItemDialogComponent } from './dialog/new-order-item.component';
 
-const dashboardRoutes: Route[] = [
+const orderRoutes: Route[] = [
     {
         path: '',
         component: OrderComponent,
@@ -39,10 +40,10 @@ const dashboardRoutes: Route[] = [
 ];
 
 @NgModule({
-    declarations: [OrderComponent],
+    declarations: [OrderComponent, NewOrderItemDialogComponent],
     imports: [
         CommonModule,
-        RouterModule.forChild(dashboardRoutes),
+        RouterModule.forChild(orderRoutes),
 
         MatSortModule,
         MatPaginatorModule,
@@ -73,4 +74,4 @@ const dashboardRoutes: Route[] = [
     ],
     providers: [DatePipe],
 })
-export class DashboardModule {}
+export class OrderModule {}

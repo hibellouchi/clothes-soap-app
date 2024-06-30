@@ -1,1 +1,81 @@
-<h1>dashbord</h1>
+<div class="flex flex-col flex-auto min-w-0">
+    <!-- Header -->
+    <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
+            <div
+                class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12"
+            >
+                <!-- Avatar and name -->
+                <div class="flex flex-auto items-center min-w-0">
+                    <div class="flex flex-col min-w-0 ml-4">
+                        <div
+                            class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug"
+                            *ngIf="decodeToken"
+                        >
+                            welcome-back, {{ decodeToken?.firstName }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
+        <div class="w-full max-w-screen-xl mx-auto">
+            <div class="flex flex-row gap-6 px-16 w-full">
+                <!-- Order -->
+                <div
+                    class="bg-card flex flex-col gap-2 items-center justify-center mt-2 overflow-hidden px-16 py-8 rounded-2xl shadow"
+                >
+                    <div class="flex flex-col items-center mt-2">
+                        <div
+                            class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
+                        >
+                            21
+                        </div>
+                        <div
+                            class="dark:text-blue-500 font-bold text-4xl text-blue-600"
+                        >
+                            Orders
+                        </div>
+                    </div>
+                </div>
+                <!-- Customer -->
+                <div
+                    class="bg-card flex flex-col gap-2 items-center justify-center mt-2 overflow-hidden px-16 py-8 rounded-2xl shadow"
+                >
+                    <div class="flex flex-col items-center mt-2">
+                        <div
+                            class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500"
+                        >
+                            21
+                        </div>
+                        <div
+                            class="dark:text-green-500 font-bold text-4xl text-green-600"
+                        >
+                            Customers
+                        </div>
+                    </div>
+                </div>
+                <!-- Employee -->
+                <div
+                    class="bg-card flex flex-col gap-2 items-center justify-center mt-2 overflow-hidden px-16 py-8 rounded-2xl shadow"
+                >
+                    <div class="flex flex-col items-center mt-2">
+                        <div
+                            class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                        >
+                            10
+                        </div>
+                        <div
+                            class="dark:text-red-500 font-bold text-4xl text-red-600"
+                        >
+                            Employee
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

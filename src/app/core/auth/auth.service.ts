@@ -43,12 +43,7 @@ export class AuthService {
         );
     }
 
-    signUp(body: {
-        firstName: string;
-        lastName: string;
-        email: string;
-        password: string;
-    }) {
+    signUp(body: UserRegister) {
         return this._httpClient.post<UserRegister>(
             this.url + 'auth/register',
             body

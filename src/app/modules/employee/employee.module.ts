@@ -34,6 +34,7 @@ import { EmlpoyeeSalarieComponent } from './employee-salaried/emlpoyee-salarie.c
 import { EmlpoyeeListComponent } from './employee-list/emlpoyee-list.component';
 import { EmployeeComponent } from './employee.component';
 import { NewEmlpoyeeItemDialogComponent } from './employee-list/dialog/new-employee-item.component';
+import { NewEmployeeSalaireItemDialogComponent } from './employee-salaried/dialog/new-employee-salaire-item.component';
 
 const employeeRoutes: Route[] = [
     {
@@ -63,6 +64,7 @@ const employeeRoutes: Route[] = [
         EmlpoyeeListComponent,
         EmployeeComponent,
         NewEmlpoyeeItemDialogComponent,
+        NewEmployeeSalaireItemDialogComponent,
     ],
     imports: [
         CommonModule,

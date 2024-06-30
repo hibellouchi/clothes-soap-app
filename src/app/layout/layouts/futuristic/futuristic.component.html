@@ -3,7 +3,7 @@
 
 <!-- Navigation -->
 <fuse-vertical-navigation
-    class="dark bg-slate-900 text-white print:hidden"
+    class="dark bg-emerald-900 text-white print:hidden"
     [mode]="isScreenSmall ? 'over' : 'side'"
     [name]="'mainNavigation'"
     [navigation]="navigation.admin"
@@ -12,13 +12,10 @@
     <!-- Navigation header hook -->
     <ng-container fuseVerticalNavigationHeader>
         <!-- Logo -->
-        <!-- <div class="p-12">
-            <img src="../../../../assets/images/logo/logo-text.svg" />
-        </div> -->
-        <div class="p-4">
-            <div class="text-4xl text-center text-white font-bold">
-                ClothesSoap
-            </div>
+        <div class="p-12">
+            <img
+                src="../../../../assets/images/logo/clothes-laundry-logo-withe.png"
+            />
         </div>
     </ng-container>
     <!-- Navigation footer hook -->
@@ -26,16 +23,19 @@
         <!-- User -->
         <div class="flex items-center w-full px-6 py-8 border-t">
             <user></user>
-            <div class="flex flex-col w-full ml-4 overflow-hidden">
+            <div
+                class="flex flex-col w-full ml-4 overflow-hidden"
+                *ngIf="decodeToken"
+            >
                 <div
                     class="w-full whitespace-nowrap text-ellipsis overflow-hidden leading-normal text-current opacity-80"
                 >
-                    admin
+                    {{ decodeToken?.firstName }}
                 </div>
                 <div
                     class="w-full mt-0.5 whitespace-nowrap text-sm text-ellipsis overflow-hidden leading-normal text-current opacity-50"
                 >
-                    admin@admin.com
+                    {{ decodeToken?.email }}
                 </div>
             </div>
         </div>

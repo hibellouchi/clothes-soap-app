@@ -10,6 +10,13 @@ export const adminNavigation: FuseNavigationItem[] = [
         link: '/dashboard',
     },
     {
+        id: 'order',
+        title: 'Order',
+        type: 'basic',
+        icon: 'mat_solid:sell',
+        link: '/order',
+    },
+    {
         id: 'customer',
         title: 'Customer',
         type: 'basic',
@@ -46,6 +53,13 @@ export const adminNavigation: FuseNavigationItem[] = [
         icon: 'mat_solid:payments',
         link: '/charge',
     },
+    {
+        id: 'category-clothe',
+        title: 'Category Clothe',
+        type: 'basic',
+        icon: 'mat_solid:local_laundry_service',
+        link: '/category-clothe',
+    },
 ];
 export const staffNavigation: FuseNavigationItem[] = [
     {
@@ -54,6 +68,13 @@ export const staffNavigation: FuseNavigationItem[] = [
         type: 'basic',
         icon: 'mat_solid:dashboard',
         link: '/dashboard',
+    },
+    {
+        id: 'order',
+        title: 'Order',
+        type: 'basic',
+        icon: 'mat_solid:sell',
+        link: '/order',
     },
     {
         id: 'customer',
@@ -92,5 +113,12 @@ export const staffNavigation: FuseNavigationItem[] = [
         type: 'basic',
         icon: 'mat_solid:payments',
         link: '/charge',
+    },
+    {
+        id: 'category-clothe',
+        title: 'Category Clothe',
+        type: 'basic',
+        icon: 'mat_solid:local_laundry_service',
+        link: '/category-clothe',
     },
 ];

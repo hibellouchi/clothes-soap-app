@@ -107,6 +107,20 @@ export const appRoutes: Route[] = [
                     ),
             },
             {
+                path: 'category-clothe',
+                loadChildren: () =>
+                    import(
+                        'app/modules/categoryClothe/categoryClothe.module'
+                    ).then((m) => m.CategoryClotheModule),
+            },
+            {
+                path: 'order',
+                loadChildren: () =>
+                    import('app/modules/order/order.module').then(
+                        (m) => m.OrderModule
+                    ),
+            },
+            {
                 path: 'error',
                 loadChildren: () =>
                     import('app/modules/error/error.module').then(

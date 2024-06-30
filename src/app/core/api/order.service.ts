@@ -3,14 +3,15 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'environments/environment';
 
-import { GlobalBody, GlobalData, GlobalDataById } from '../models/global';
+import {
+    GlobalBody,
+    GlobalCount,
+    GlobalData,
+    GlobalDataById,
+} from '../models/global';
 
 import { Observable } from 'rxjs';
-import {
-  Order,
-   EditOrder,
-   NewOrder,
-} from '../models/order';
+import { Order, EditOrder, NewOrder } from '../models/order';
 
 @Injectable({ providedIn: 'root' })
 export class OrderApiService {
@@ -19,11 +20,16 @@ export class OrderApiService {
     constructor(private _httpClient: HttpClient) {}
 
     //get all
-    getOrder(
-        body: GlobalBody
-    ): Observable<GlobalData<Order>> {
+    getOrder(body: GlobalBody): Observable<GlobalData<Order>> {
         return this._httpClient.post<GlobalData<Order>>(
             this.url + 'order/all',
+            body
+        );
+    }
+    //get Count
+    getCount(body: any): Observable<GlobalCount> {
+        return this._httpClient.post<GlobalCount>(
+            this.url + 'order/count',
             body
         );
     }
@@ -42,18 +48,12 @@ export class OrderApiService {
     //create
 
     addOrder(body: NewOrder) {
-        return this._httpClient.post<Order>(
-            this.url + 'order/add',
-            body
-        );
+        return this._httpClient.post<Order>(this.url + 'order/add', body);
     }
 
     //delete
     deleteOrder(params: any, body: any): Observable<any> {
-        return this._httpClient.put(
-            this.url + `order/delete/${params}`,
-            body
-        );
+        return this._httpClient.put(this.url + `order/delete/${params}`, body);
     }
 
     //edit

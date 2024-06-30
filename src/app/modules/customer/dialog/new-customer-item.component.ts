@@ -34,7 +34,13 @@ export class NewCustomerItemDialogComponent implements OnInit {
     ) {
         this.customerForm = this._fb.group({
             name: [data.name, [Validators.required]],
-            phone: [data.phone, [Validators.required]],
+            phone: [
+                data.phone,
+                [
+                    Validators.required,
+                    Validators.pattern('^((\\+212-?)|0)?[675][0-9]{8}$'),
+                ],
+            ],
         });
     }
 

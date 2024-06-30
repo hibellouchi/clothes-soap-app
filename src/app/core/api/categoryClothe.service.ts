@@ -34,7 +34,7 @@ export class CategoryClotheApiService {
         body: GlobalBody
     ): Observable<GlobalDataById<CategoryClothe>> {
         return this._httpClient.post<GlobalDataById<CategoryClothe>>(
-            this.url + `category/get/${params}`,
+            this.url + `category-clothe/get/${params}`,
             body
         );
     }
@@ -43,7 +43,7 @@ export class CategoryClotheApiService {
 
     addCategoryClothe(body: NewCategoryClothe) {
         return this._httpClient.post<CategoryClothe>(
-            this.url + 'category/add',
+            this.url + 'category-clothe/add',
             body
         );
     }
@@ -51,13 +51,16 @@ export class CategoryClotheApiService {
     //delete
     deleteCategoryClothe(params: any, body: any): Observable<any> {
         return this._httpClient.put(
-            this.url + `category/delete/${params}`,
+            this.url + `category-clothe/delete/${params}`,
             body
         );
     }
 
     //edit
     editCategoryClothe(params: any, body: EditCategoryClothe): Observable<any> {
-        return this._httpClient.put(this.url + `category/edit/${params}`, body);
+        return this._httpClient.put(
+            this.url + `category-clothe/edit/${params}`,
+            body
+        );
     }
 }
