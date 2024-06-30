@@ -1,0 +1,51 @@
+<div mat-dialog-content>
+    <div>
+        <form [formGroup]="chargeForm">
+            <div class="flex flex-row gap-2">
+                <mat-form-field class="w-full">
+                    <mat-label>Name</mat-label>
+                    <input
+                        matInput
+                        required
+                        type="text"
+                        formControlName="name"
+                    />
+
+                    <mat-error
+                        *ngIf="chargeForm.get('name').hasError('required')"
+                    >
+                        name is required.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label>Price</mat-label>
+                    <input
+                        matInput
+                        required
+                        type="number"
+                        minlengt="0"
+                        formControlName="price"
+                    />
+
+                    <mat-error
+                        *ngIf="chargeForm.get('price').hasError('required')"
+                    >
+                        phone is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+</div>
+
+<mat-dialog-actions class="flex justify-end">
+    <button mat-button mat-dialog-close>cancel</button>
+    <button
+        mat-button
+        (click)="saveCustemer()"
+        [color]="'primary'"
+        [disabled]="chargeForm.invalid"
+    >
+        Create
+    </button>
+</mat-dialog-actions>

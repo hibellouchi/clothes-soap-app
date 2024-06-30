@@ -1,0 +1,205 @@
+<div
+    class="sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 sm:overflow-hidden bg-card dark:bg-transparent"
+>
+    <!-- Header -->
+    <div
+        class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between py-8 px-6 md:px-8 border-b"
+    >
+        <!-- Loader -->
+        <div class="absolute inset-x-0 bottom-0" *ngIf="isLoading">
+            <mat-progress-bar [mode]="'indeterminate'"></mat-progress-bar>
+        </div>
+        <!-- Title -->
+        <div class="w-1/3 flex flex-col">
+            <div class="text-4xl font-extrabold tracking-tight">
+                Category Clothe
+            </div>
+            <div class="ml-0.5 font-medium text-secondary">
+                <ng-container *ngIf="dataSource.count > 0">
+                    {{ data?.count }}
+                </ng-container>
+                {{
+                    dataSource.count
+                        | i18nPlural
+                            : {
+                                  "=0": "no Category Clothe",
+                                  "=1": " 1 " + "Category Clothe",
+                                  other: dataSource.count + " Category Clothes"
+                              }
+                }}
+            </div>
+        </div>
+        <!-- Actions -->
+        <div class="flex shrink-0 items-center mt-6 sm:mt-0 sm:ml-4">
+            <!-- Search -->
+            <mat-form-field
+                class="fuse-mat-dense fuse-mat-rounded min-w-64"
+                [subscriptSizing]="'dynamic'"
+            >
+                <mat-icon
+                    class="icon-size-5"
+                    matPrefix
+                    [svgIcon]="'mat_solid:search'"
+                ></mat-icon>
+                <input
+                    matInput
+                    [formControl]="searchInputControl"
+                    [autocomplete]="'off'"
+                    [placeholder]="'Search Category Clothe'"
+                />
+            </mat-form-field>
+            <!-- Add product button -->
+            <button
+                class="ml-4"
+                mat-flat-button
+                [color]="'accent'"
+                (click)="createCategoryClothe()"
+            >
+                <mat-icon [svgIcon]="'mat_solid:add'"></mat-icon>
+                <span class="ml-2 mr-1">Add Category Clothe</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="relative h-full flex flex-col flex-auto overflow-hidden">
+        <div class="example-table-container h-full overflow-auto bg-card">
+            <ng-container *ngIf="!isLoading; else isLoadingTmp">
+                <ng-container *ngIf="!isError; else errorTmp">
+                    <ng-container *ngIf="dataSource.count > 0; else noTmp">
+                        <table
+                            mat-table
+                            [dataSource]="dataSource.data"
+                            matSort
+                            class="example-table justify-center"
+                        >
+                            <!-- name Column -->
+                            <ng-container matColumnDef="name">
+                                <th
+                                    mat-header-cell
+                                    class="bg-gray-200"
+                                    *matHeaderCellDef
+                                    mat-sort-header
+                                >
+                                    name
+                                </th>
+                                <td
+                                    mat-cell
+                                    *matCellDef="let row"
+                                    class="font-semibold"
+                                >
+                                    {{ row.name }}
+                                </td>
+                            </ng-container>
+                            <!-- price Column -->
+                            <ng-container matColumnDef="price">
+                                <th
+                                    mat-header-cell
+                                    class="bg-gray-200"
+                                    *matHeaderCellDef
+                                    mat-sort-header
+                                >
+                                    price
+                                </th>
+                                <td
+                                    mat-cell
+                                    *matCellDef="let row"
+                                    class="font-semibold"
+                                >
+                                    <span
+                                        class="bg-red-700 text-white p-1 px-4 rounded-full"
+                                        >{{ row.price | currency : "DH" }}</span
+                                    >
+                                </td>
+                            </ng-container>
+                            <!-- createdAt Column -->
+                            <ng-container matColumnDef="createdAt">
+                                <th
+                                    mat-header-cell
+                                    *matHeaderCellDef
+                                    mat-sort-header
+                                    class="bg-gray-200"
+                                >
+                                    Date Created
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    {{
+                                        row.createdAt
+                                            | date : "yyyy/MM/dd HH:mm"
+                                    }}
+                                </td>
+                            </ng-container>
+                            <!-- action Column -->
+                            <ng-container matColumnDef="action">
+                                <th
+                                    mat-header-cell
+                                    *matHeaderCellDef
+                                    class="bg-gray-200"
+                                >
+                                    Action
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                    <button
+                                        (click)="
+                                            $event.stopPropagation(); edit(row)
+                                        "
+                                        mat-icon-button
+                                    >
+                                        <mat-icon>note_add</mat-icon>
+                                    </button>
+
+                                    <button
+                                        (click)="
+                                            $event.stopPropagation();
+                                            deleteCategoryClothe(row)
+                                        "
+                                        mat-icon-button
+                                    >
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </td>
+                            </ng-container>
+
+                            <tr
+                                mat-header-row
+                                *matHeaderRowDef="displayedColumns"
+                            ></tr>
+                            <tr
+                                mat-row
+                                *matRowDef="let row; columns: displayedColumns"
+                            ></tr>
+                        </table>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+            <!-- template -->
+            <ng-template #errorTmp>
+                <div
+                    class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center"
+                >
+                    There is an error, please try again later !
+                </div>
+            </ng-template>
+            <ng-template #noTmp>
+                <div
+                    class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center"
+                >
+                    There are no Custemers with this criteria!
+                </div>
+            </ng-template>
+            <ng-template #isLoadingTmp>
+                <div
+                    class="p-8 sm:p-16 border-t text-4xl font-semibold tracking-tight text-center h-full flex items-center justify-center"
+                >
+                    <mat-spinner></mat-spinner>
+                </div>
+            </ng-template>
+        </div>
+
+        <mat-paginator
+            class="w-full justify-end flex"
+            [length]="dataSource.count"
+            [pageSize]="10"
+            [pageSizeOptions]="[10, 25, 50, 100]"
+        ></mat-paginator>
+    </div>
+</div>
