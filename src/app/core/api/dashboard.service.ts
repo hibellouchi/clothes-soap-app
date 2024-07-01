@@ -1,41 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
-export class DashboardService {
-    private _data: BehaviorSubject<any> = new BehaviorSubject(null);
+import { environment } from 'environments/environment';
 
-    /**
-     * Constructor
-     */
+import { GlobalBody, GlobalData, GlobalDataById } from '../models/global';
+
+import { Observable } from 'rxjs';
+import { Dashboard } from '../models/dashboard';
+
+@Injectable({ providedIn: 'root' })
+export class DashboardApiService {
+    private url = environment.url;
+
     constructor(private _httpClient: HttpClient) {}
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Accessors
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Getter for data
-     */
-    get data$(): Observable<any> {
-        return this._data.asObservable();
+    getDashboard(body: GlobalBody): Observable<GlobalDataById<Dashboard>> {
+        return this._httpClient.post<GlobalDataById<Dashboard>>(
+            this.url + 'dashboard/all',
+            body
+        );
     }
-
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
-
-    /**
-     * Get data
-     */
-    // getData(): Observable<any> {
-    //     return this._httpClient.get('core/api/dashboard').pipe(
-    //         tap((response: any) => {
-    //             this._data.next(response);
-    //         })
-    //     );
-    // }
 }

@@ -22,60 +22,207 @@
 
     <!-- Main -->
     <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
-        <div class="w-full max-w-screen-xl mx-auto">
-            <div class="flex flex-row gap-6 px-16 w-full">
-                <!-- Order -->
+        <ng-container *ngIf="dashboard$">
+            <div class="w-full max-w-screen-xl mx-auto">
                 <div
-                    class="bg-card flex flex-col gap-2 items-center justify-center mt-2 overflow-hidden px-16 py-8 rounded-2xl shadow"
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 px-6 gap-6 w-full min-w-0"
                 >
-                    <div class="flex flex-col items-center mt-2">
-                        <div
-                            class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
-                        >
-                            21
-                        </div>
-                        <div
-                            class="dark:text-blue-500 font-bold text-4xl text-blue-600"
-                        >
-                            Orders
+                    <!-- Order -->
+                    <div
+                        class="bg-card flex flex-col gap-2 items-center justify-center mt-2 overflow-hidden py-8 rounded-2xl shadow"
+                    >
+                        <div class="flex flex-col items-center mt-2">
+                            <div
+                                class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-blue-500"
+                            >
+                                {{ dashboard$.orderCounts }}
+                            </div>
+                            <div
+                                class="dark:text-blue-500 font-bold text-xl text-blue-600"
+                            >
+                                Orders
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Customer -->
-                <div
-                    class="bg-card flex flex-col gap-2 items-center justify-center mt-2 overflow-hidden px-16 py-8 rounded-2xl shadow"
-                >
-                    <div class="flex flex-col items-center mt-2">
-                        <div
-                            class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500"
-                        >
-                            21
-                        </div>
-                        <div
-                            class="dark:text-green-500 font-bold text-4xl text-green-600"
-                        >
-                            Customers
+                    <!-- Customer -->
+                    <div
+                        class="bg-card flex flex-col gap-2 items-center justify-center mt-2 overflow-hidden px-16 py-8 rounded-2xl shadow"
+                    >
+                        <div class="flex flex-col items-center mt-2">
+                            <div
+                                class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-green-500"
+                            >
+                                {{ dashboard$.customerCounts }}
+                            </div>
+                            <div
+                                class="dark:text-green-500 font-bold text-xl text-green-600"
+                            >
+                                Customers
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Employee -->
-                <div
-                    class="bg-card flex flex-col gap-2 items-center justify-center mt-2 overflow-hidden px-16 py-8 rounded-2xl shadow"
-                >
-                    <div class="flex flex-col items-center mt-2">
+                    <!-- Employee -->
+                    <div
+                        class="bg-card flex flex-col gap-2 items-center justify-center mt-2 overflow-hidden px-16 py-8 rounded-2xl shadow"
+                    >
+                        <div class="flex flex-col items-center mt-2">
+                            <div
+                                class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                            >
+                                {{ dashboard$.employeeCounts }}
+                            </div>
+                            <div
+                                class="dark:text-red-500 font-bold text-xl text-red-600"
+                            >
+                                Employee
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Category Clothe-->
+                    <div
+                        class="bg-card flex flex-col gap-2 items-center justify-center mt-2 overflow-hidden px-16 py-8 rounded-2xl shadow"
+                    >
+                        <div class="flex flex-col items-center mt-2">
+                            <div
+                                class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-pink-500"
+                            >
+                                {{ dashboard$.categoryClotheCounts }}
+                            </div>
+                            <div
+                                class="dark:text-pink-700 font-bold text-xl text-pink-600"
+                            >
+                                Category Clothe
+                            </div>
+                        </div>
+                    </div>
+                    <!-- sum-->
+                    <!-- Github issues summary -->
+                    <div
+                        class="sm:col-span-2 md:col-span-4 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden"
+                    >
                         <div
-                            class="text-7xl sm:text-8xl font-bold tracking-tight leading-none text-red-500"
+                            class="flex flex-col sm:flex-row items-start justify-between"
                         >
-                            10
+                            <div
+                                class="text-lg font-medium tracking-tight leading-6 truncate"
+                            >
+                                Calender
+                            </div>
                         </div>
                         <div
-                            class="dark:text-red-500 font-bold text-4xl text-red-600"
+                            class="grid grid-cols-1 lg:grid-cols-2 grid-flow-row gap-6 w-full mt-8 sm:mt-4"
                         >
-                            Employee
+                            <!-- New vs. Closed -->
+                            <div class="flex flex-col flex-auto">
+                                <div class="font-medium text-secondary">
+                                    Appointments vs. Waiting Room
+                                </div>
+                                <div class="flex flex-col flex-auto"></div>
+                            </div>
+                            <!-- Overview -->
+                            <div class="flex flex-col">
+                                <div class="font-medium text-secondary">
+                                    Overview
+                                </div>
+                                <div
+                                    class="flex-auto grid grid-cols-4 gap-4 mt-6"
+                                >
+                                    <!-- New issues -->
+                                    <div
+                                        class="col-span-2 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-indigo-50 text-indigo-800 dark:bg-white dark:bg-opacity-5 dark:text-indigo-400"
+                                    >
+                                        <div
+                                            class="text-5xl sm:text-7xl font-semibold leading-none tracking-tight"
+                                        >
+                                            12
+                                        </div>
+                                        <div
+                                            class="mt-1 text-sm sm:text-lg font-medium"
+                                        >
+                                            Appointment
+                                        </div>
+                                    </div>
+                                    <!-- Closed -->
+                                    <div
+                                        class="col-span-2 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-green-50 text-green-800 dark:bg-white dark:bg-opacity-5 dark:text-green-500"
+                                    >
+                                        <div
+                                            class="text-5xl sm:text-7xl font-semibold leading-none tracking-tight"
+                                        >
+                                            32
+                                        </div>
+                                        <div
+                                            class="mt-1 text-sm sm:text-lg font-medium"
+                                        >
+                                            Waiting Room
+                                        </div>
+                                    </div>
+                                    <!-- Fixed -->
+                                    <div
+                                        class="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-red-200 text-secondary dark:bg-white dark:bg-opacity-5"
+                                    >
+                                        <div
+                                            class="text-5xl font-semibold leading-none tracking-tight"
+                                        >
+                                            54
+                                        </div>
+                                        <div
+                                            class="mt-1 text-sm font-medium text-center"
+                                        >
+                                            Cancel
+                                        </div>
+                                    </div>
+                                    <!-- Won't fix -->
+                                    <div
+                                        class="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-blue-200 text-secondary dark:bg-white dark:bg-opacity-5"
+                                    >
+                                        <div
+                                            class="text-5xl font-semibold leading-none tracking-tight"
+                                        >
+                                            32
+                                        </div>
+                                        <div
+                                            class="mt-1 text-sm font-medium text-center"
+                                        >
+                                            Confirmed
+                                        </div>
+                                    </div>
+                                    <!-- Re-opened -->
+                                    <div
+                                        class="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-primary-200 text-secondary dark:bg-white dark:bg-opacity-5"
+                                    >
+                                        <div
+                                            class="text-5xl font-semibold leading-none tracking-tight"
+                                        >
+                                            32
+                                        </div>
+                                        <div
+                                            class="mt-1 text-sm font-medium text-center"
+                                        >
+                                            arrived
+                                        </div>
+                                    </div>
+                                    <!-- Needs triage -->
+                                    <div
+                                        class="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-green-200 text-secondary dark:bg-white dark:bg-opacity-5"
+                                    >
+                                        <div
+                                            class="text-5xl font-semibold leading-none tracking-tight"
+                                        >
+                                            32
+                                        </div>
+                                        <div
+                                            class="mt-1 text-sm font-medium text-center"
+                                        >
+                                            Completed
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </ng-container>
     </div>
 </div>

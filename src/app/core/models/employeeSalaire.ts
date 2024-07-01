@@ -1,14 +1,14 @@
-export interface NewEmployeeSalaire{
+export interface NewEmployeeSalaire {
     employee: string;
-    salaire: string;
+    price: string;
 }
-export interface EditEmployeeSalaire{
+export interface EditEmployeeSalaire {
     employee?: string;
-    salaire?: string;
+    price?: string;
 }
-export interface EmployeeSalaire{
+export interface EmployeeSalaire {
     _id: string;
     employee: string;
-    salaire: string;
+    price: string;
     createdAt?: Date;
 }

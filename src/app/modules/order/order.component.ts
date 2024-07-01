@@ -57,6 +57,7 @@ export class OrderComponent {
         'categoryClothe',
         'quantity',
         'price',
+        'total',
         'status',
         'createdAt',
         'action',
@@ -153,7 +154,7 @@ export class OrderComponent {
     }
     setStatus(row) {
         this._orderApiService
-            .editOrder(row._id, { status: 'Paid' })
+            .editStatusOrder(row._id, { status: 'Paid' })
             .pipe(
                 catchError((err) => {
                     this.isError = true;
@@ -188,7 +189,7 @@ export class OrderComponent {
 
                 switchMap(() =>
                     this._orderApiService
-                        .editOrder(row._id, { status: 'canceled' })
+                        .editStatusOrder(row._id, { status: 'Canceled' })
                         .pipe(
                             catchError((err) => {
                                 this.isError = true;

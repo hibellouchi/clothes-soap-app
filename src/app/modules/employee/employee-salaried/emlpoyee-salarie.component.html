@@ -91,7 +91,7 @@
                                 </td>
                             </ng-container>
                             <!-- price Column -->
-                            <ng-container matColumnDef="salaire">
+                            <ng-container matColumnDef="price">
                                 <th
                                     mat-header-cell
                                     class="bg-gray-200"
@@ -107,9 +107,7 @@
                                 >
                                     <span
                                         class="bg-red-700 text-white p-1 px-4 rounded-full"
-                                        >{{
-                                            row.salaire | currency : "DH"
-                                        }}</span
+                                        >{{ row.price | currency : "DH" }}</span
                                     >
                                 </td>
                             </ng-container>

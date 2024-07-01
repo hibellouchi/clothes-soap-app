@@ -4,7 +4,6 @@ export interface NewOrder {
     quantity: string;
     price: string;
     status?: string;
-    
 }
 export interface EditOrder {
     custemer?: string;
@@ -19,6 +18,7 @@ export interface Order {
     categoryClothe: string;
     quantity: string;
     price: string;
+    total: string;
     status: string;
     createdAt?: Date;
 }

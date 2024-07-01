@@ -52,7 +52,7 @@ import { NewEmployeeSalaireItemDialogComponent } from './dialog/new-employee-sal
 export class EmlpoyeeSalarieComponent implements AfterViewInit, OnDestroy {
     private _unsubscibe$ = new Subject();
     private _getData$ = new Subject();
-    displayedColumns = ['employee', 'salaire', 'createdAt', 'action'];
+    displayedColumns = ['employee', 'price', 'createdAt', 'action'];
     public isLoading = false;
     public isError = false;
     public searchInputControl = new FormControl('');

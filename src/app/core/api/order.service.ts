@@ -60,4 +60,10 @@ export class OrderApiService {
     editOrder(params: any, body: EditOrder): Observable<any> {
         return this._httpClient.put(this.url + `order/edit/${params}`, body);
     }
+    editStatusOrder(params: any, body: EditOrder): Observable<any> {
+        return this._httpClient.put(
+            this.url + `order/edit-status/${params}`,
+            body
+        );
+    }
 }

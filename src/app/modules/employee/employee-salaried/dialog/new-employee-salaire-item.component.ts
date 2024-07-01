@@ -40,7 +40,7 @@ export class NewEmployeeSalaireItemDialogComponent implements OnInit {
     ) {
         this.employeeSalaireForm = this._fb.group({
             employee: [data.employee, [Validators.required]],
-            salaire: [data.salaire, [Validators.required]],
+            price: [data.price, [Validators.required]],
         });
         this.employee$ = this._employeeApiService
             .getEmployee({ keyword: '' })
