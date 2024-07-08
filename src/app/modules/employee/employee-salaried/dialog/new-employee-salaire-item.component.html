@@ -31,13 +31,13 @@
                         required
                         type="number"
                         minlengt="0"
-                        formControlName="salaire"
+                        formControlName="price"
                     />
 
                     <mat-error
                         *ngIf="
                             employeeSalaireForm
-                                .get('salaire')
+                                .get('price')
                                 .hasError('required')
                         "
                     >
