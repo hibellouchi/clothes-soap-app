@@ -32,7 +32,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NewCategoryClotheItemDialogComponent } from './dialog/new-categoryClothe-item.component';
 
-const dashboardRoutes: Route[] = [
+const CategoryClotheRoutes: Route[] = [
     {
         path: '',
         component: CategoryClotheComponent,
@@ -46,7 +46,7 @@ const dashboardRoutes: Route[] = [
     ],
     imports: [
         CommonModule,
-        RouterModule.forChild(dashboardRoutes),
+        RouterModule.forChild(CategoryClotheRoutes),
 
         MatSortModule,
         MatPaginatorModule,

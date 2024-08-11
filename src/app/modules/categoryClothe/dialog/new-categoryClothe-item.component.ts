@@ -19,7 +19,7 @@ export interface User {
 
 @Component({
     selector: 'app-new-charge-item-dialog',
-    templateUrl: './new-CategoryClothe-item.component.html',
+    templateUrl: './new-categoryClothe-item.component.html',
 })
 export class NewCategoryClotheItemDialogComponent implements OnInit {
     public errorMessage: string | null;

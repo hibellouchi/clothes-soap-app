@@ -32,7 +32,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NewChargeItemDialogComponent } from './dialog/new-charge-item.component';
 
-const dashboardRoutes: Route[] = [
+const ChargeRoutes: Route[] = [
     {
         path: '',
         component: ChargeComponent,
@@ -43,7 +43,7 @@ const dashboardRoutes: Route[] = [
     declarations: [ChargeComponent, NewChargeItemDialogComponent],
     imports: [
         CommonModule,
-        RouterModule.forChild(dashboardRoutes),
+        RouterModule.forChild(ChargeRoutes),
 
         MatSortModule,
         MatPaginatorModule,
