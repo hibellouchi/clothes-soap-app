@@ -1,7 +1,7 @@
 {
-    "name": "dentalus",
-    "version": "17.2.0",
-    "description": "dentalus",
+    "name": "ClothesApp",
+    "version": "1.0.0",
+    "description": "clothes",
     "private": true,
     "scripts": {
         "ng": "ng",

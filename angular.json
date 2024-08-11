@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "dentalus": {
+        "clothes": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/dentalus",
+                        "outputPath": "dist/clothes",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": ["zone.js"],
@@ -92,10 +92,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "dentalus:build:production"
+                            "browserTarget": "clothes:build:production"
                         },
                         "development": {
-                            "browserTarget": "dentalus:build:development"
+                            "browserTarget": "clothes:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -103,7 +103,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "dentalus:build"
+                        "browserTarget": "clothes:build"
                     }
                 },
                 "test": {
