@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    url: 'https://api-wash.vercel.app/',
+    url: 'https://apiwash.onrender.com/',
     // url: 'https://api.dentalus.tecsolus.com/',
 };
