@@ -5,7 +5,7 @@
     "private": true,
     "scripts": {
         "ng": "ng",
-        "start": "ng serve --port 4300",
+        "dev": "ng serve --port $PORT",
         "build": "ng build",
         "build-prod": "ng build --configuration production",
         "watch": "ng build --watch --configuration development",
